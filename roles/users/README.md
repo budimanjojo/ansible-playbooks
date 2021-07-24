@@ -77,3 +77,7 @@ ssh-rsa
   roles:
   - users
 ```
+
+## Licence
+
+MIT License
