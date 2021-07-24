@@ -1,0 +1,57 @@
+---
+- name: Get defined list of groups
+  set_fact:
+    list_of_groups: "{{ (list_of_groups|default ([]) + item.groups)|unique }}"
+  loop: "{{ users_add }}"
+  loop_control:
+    label: "{{ item.groups if item.groups is defined else '' }}"
+  when: item.groups is defined
+
+- name: Add groups
+  group:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ list_of_groups }}"
+  when: list_of_groups is defined
+
+- name: Add users
+  user:
+    name: "{{ item.username }}"
+    password: "{{ item.password }}"
+    create_home: "{{ item.create_home | default('yes') | bool }}"
+    generate_ssh_key: " {{ item.gen_ssh_key | default('no') | bool }}"
+    append: "{{ item.append | default('no') | bool }}"
+    groups: "{{ item.groups if item.groups is defined | default(omit) }}"
+    update_password: "{{ item.updatepassword | default('always') }}"
+    shell: "{{ item.shell | default(omit) }}"
+  loop: "{{ users_add }}"
+  loop_control:
+    label: "{{ item.username }}"
+  when: item is defined
+
+- name: Add user's authorized keys
+  ansible.posix.authorized_key:
+    user: "{{ item.username }}"
+    key: "{{ item.authorized_keys | default([]) | join('\n') }}"
+    exclusive: "{{ users_add.authorized_keys_exclusive | default('no') | bool }}"
+  loop: "{{ users_add }}"
+  loop_control:
+    label: "{{ item.username }}"
+  when: item is defined
+
+- name: Remove users
+  user:
+    name: "{{ item.username }}"
+    state: absent
+    remove: "{{ item.remove_dir | default('no') | bool }}"
+  loop: "{{ users_remove }}"
+  loop_control:
+    label: "{{ item.username }}"
+  when: item is defined
+
+- name: Remove groups
+  group:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ groups_remove }}"
+  when: item is defined

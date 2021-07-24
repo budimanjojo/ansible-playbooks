@@ -1,0 +1,24 @@
+---
+ssh_sshd_config_options:
+  ChallengeResponseAuthentication: "no"
+  AcceptEnv: LANG LC_*
+  PasswordAuthentication: "no"
+  PrintMotd: "no"
+  PermitRootLogin: "no"
+  Subsystem: sftp internal-sftp
+packages_pacman_update_mirrorlist: no
+packages_pacman_mirrorlist_url: https://archlinux.org/mirrorlist/?country=AU&country=CN&country=HK&country=ID&country=JP&country=SG&country=KR&country=TW&protocol=http&protocol=https&ip_version=4
+packages_install:
+  all:
+  - git
+  - zsh
+  - neovim
+  - tmux
+  - nodejs
+  - subversion
+  archlinux:
+  - the_silver_searcher
+  debian:
+  - silversearcher-ag
+  redhat:
+  - the_silver_searcher
