@@ -10,6 +10,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [sudo](./roles/sudo/): This role lets you configure sudoers file
 - [ssh](./roles/ssh/): This role lets you configure ssh
 - [packages](./roles/packages/): This role lets you install and uninstall packages
+- [dotfiles](./roles/dotfiles/): This role lets you clone and link your dotfiles from remote repository
 
 ## Secret variables management
 
@@ -72,12 +73,18 @@ ssh-rsa
       - python3-neovim
       redhat:
       - python36-neovim
+    dotfiles_repo_url: https://github.com/budimanjojo/dotfiles.git
+    dotfiles_repo_local_path: ~/dotfiles
+    dotfiles_files:
+    - .zshrc
+    - .tmux.conf
 
   roles:
   - users
   - sudoers
   - ssh
   - packages
+  - dotfiles
 ```
 
 ## License

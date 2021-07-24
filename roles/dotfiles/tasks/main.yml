@@ -1,0 +1,56 @@
+---
+- name: Ensure git is installed
+  package:
+    name: "{{ dotfiles_git_package_name }}"
+    state: present
+
+- name: Ensure dotfiles repository is cloned
+  git:
+    repo: "{{ dotfiles_repo_url }}"
+    dest: "{{ dotfiles_repo_local_path }}"
+    version: "{{ dotfiles_repo_version }}"
+    accept_hostkey: "{{ dotfiles_repo_accept_hostkey | bool | default(yes) }}"
+  become: false
+
+- name: Ensure the needed directories are present
+  file:
+    dest: "{{ dotfiles_home }}/{{ item }}"
+    state: directory
+  become: false
+  loop: "{{ dotfiles_create_dir }}"
+
+- name: Link dotfiles into home directory
+  file:
+    src: "{{ dotfiles_repo_local_path }}/{{ item }}"
+    dest: "{{ dotfiles_home }}/{{ item }}"
+    state: link
+    force: yes
+  become: false
+  loop: "{{ dotfiles_files }}"
+
+- name: Get to know if the link is file or directory
+  stat:
+    path: "{{ dotfiles_repo_local_path }}/{{ item }}"
+  register: dotfiles_files_info
+  become: false
+  loop: "{{ dotfiles_files }}"
+
+- name: Ensure file permissions are correct
+  file:
+    dest: "{{ dotfiles_home }}/{{ item.item }}"
+    mode: 0644
+  loop: "{{ dotfiles_files_info.results }}"
+  loop_control:
+    label: "{{ dotfiles_home }}/{{ item.item }}"
+  become: false
+  when: item.stat.isreg is defined and item.stat.isreg
+
+- name: Ensure group permissions are correct
+  file:
+    dest: "{{ dotfiles_home }}/{{ item.item }}"
+    mode: 0755
+  loop: "{{ dotfiles_files_info.results }}"
+  loop_control:
+    label: "{{ dotfiles_home }}/{{ item.item }}"
+  become: false
+  when: item.stat.isdir is defined and item.stat.isdir
