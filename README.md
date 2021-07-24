@@ -9,6 +9,10 @@ Here are the list of currently available roles. Each role has its own README fil
 - [users](./roles/users/): This role lets you create and remove users and groups
 - [ssh](./roles/ssh/): This role lets you configure ssh
 
+## Secret variables management
+
+I personally use [sops](https://github.com/mozilla/sops) to manage my secrets. This require `sops` and your preferred encryption tool to be installed in the ansible host machine. I use [age](https://github.com/FiloSottile/age) as my preferred sops companion. The example secret group_vars is available in [inventory/example/group_vars/all.sops.yml](./inventory/example/group_vars/all.sops.yml). This is possible by the [community.sops ansible plugin](https://github.com/ansible-collections/community.sops). The provided [ansible.cfg](./ansible.cfg) file is configured to load the plugin by default. Public key to encrypt the secret file is in [.sops.yaml](./.sops.yaml) file.
+
 ## Example playbook
 ```
 - hosts: all
