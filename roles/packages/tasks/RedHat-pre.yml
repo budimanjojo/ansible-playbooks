@@ -1,0 +1,4 @@
+---
+- name: Update dnf/yum cache
+  dnf:
+    update_cache: "{{ packages_update_cache | bool }}"

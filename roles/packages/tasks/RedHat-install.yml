@@ -1,0 +1,5 @@
+---
+- name: Install Redhat specific packages
+  dnf:
+    name: "{{ packages_install.redhat }}"
+    state: present

@@ -1,0 +1,5 @@
+---
+- name: Remove Redhat specific packages
+  dnf:
+    name: "{{ packages_uninstall.redhat }}"
+    state: absent

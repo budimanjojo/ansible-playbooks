@@ -1,0 +1,5 @@
+---
+- name: Install Debian specific packages
+  apt:
+    name: "{{ packages_install.debian }}"
+    state: present

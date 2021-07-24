@@ -1,0 +1,5 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: "{{ packages_update_cache | bool }}"
+    cache_valid_time: 600

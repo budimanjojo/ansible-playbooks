@@ -1,0 +1,5 @@
+---
+- name: Remove Debian specific packages
+  apt:
+    name: "{{ packages_uninstall.debian }}"
+    state: absent

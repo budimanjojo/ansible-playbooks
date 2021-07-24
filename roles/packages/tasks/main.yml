@@ -1,0 +1,19 @@
+---
+- name: Include os specific pre-tasks
+  include_tasks: "{{ ansible_os_family }}-pre.yml"
+
+- name: Install packages
+  package:
+    name: "{{ packages_install.all }}"
+    state: present
+
+- name: Install os specific packages
+  include_tasks: "{{ ansible_os_family }}-install.yml"
+
+- name: Remove packages
+  package:
+    name: "{{ packages_uninstall.all }}"
+    state: absent
+
+- name: Remove os specific packages
+  include_tasks: "{{ ansible_os_family }}-uninstall.yml"

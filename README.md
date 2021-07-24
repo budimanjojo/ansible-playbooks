@@ -9,6 +9,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [users](./roles/users/): This role lets you create and remove users and groups
 - [sudo](./roles/sudo/): This role lets you configure sudoers file
 - [ssh](./roles/ssh/): This role lets you configure ssh
+- [packages](./roles/packages/): This role lets you install and uninstall packages
 
 ## Secret variables management
 
@@ -62,11 +63,21 @@ ssh-rsa
 	- ~/.ssh/id_dca
 	- ~/.ssh/id_ecdsa
 	- ~/.ssh/id_ed25519
+    packages_install:
+      all:
+      - neovim
+      archlinux:
+      - python-pynvim
+      debian:
+      - python3-neovim
+      redhat:
+      - python36-neovim
 
   roles:
   - users
   - sudoers
   - ssh
+  - packages
 ```
 
 ## License
