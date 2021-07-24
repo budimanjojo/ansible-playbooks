@@ -29,7 +29,6 @@ dotfiles_files: []
 
 ## List of directories to be created before making symlink
 dotfiles_create_dir: []
-
 ```
 
 ## Example playbook

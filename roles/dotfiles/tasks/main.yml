@@ -9,7 +9,7 @@
     repo: "{{ dotfiles_repo_url }}"
     dest: "{{ dotfiles_repo_local_path }}"
     version: "{{ dotfiles_repo_version }}"
-    accept_hostkey: "{{ dotfiles_repo_accept_hostkey | default(yes) | bool }}"
+    accept_hostkey: "{{ dotfiles_repo_accept_hostkey | default('yes') | bool }}"
   become: false
 
 - name: Ensure the needed directories are present

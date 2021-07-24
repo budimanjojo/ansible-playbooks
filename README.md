@@ -11,6 +11,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [ssh](./roles/ssh/): This role lets you configure ssh
 - [packages](./roles/packages/): This role lets you install and uninstall packages
 - [dotfiles](./roles/dotfiles/): This role lets you clone and link your dotfiles from remote repository
+- [gitclone](./roles/gitclone/): This role lets you clone repositories to your machine
 
 ## Secret variables management
 
@@ -78,6 +79,9 @@ ssh-rsa
     dotfiles_files:
     - .zshrc
     - .tmux.conf
+    gitclone_repo_add:
+    - repo_url: https://github.com/budimanjojo/ansible-playbooks.git
+      repo_local_path: ~/ansible-playbooks
 
   roles:
   - users
@@ -85,6 +89,7 @@ ssh-rsa
   - ssh
   - packages
   - dotfiles
+  - gitclone
 ```
 
 ## License

@@ -1,0 +1,4 @@
+---
+gitclone_git_package_name: git
+gitclone_repo_add: []
+gitclone_become: false
