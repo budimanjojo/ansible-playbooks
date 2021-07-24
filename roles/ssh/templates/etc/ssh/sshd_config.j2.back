@@ -1,0 +1,43 @@
+{{ ansible_managed | comment }}
+{% if ssh_sshd_config_d_exists.stat.exists and ssh_sshd_config_d_exists.stat.isdir %}
+Include /etc/ssh/sshd_config.d/*.conf
+{% endif %}
+
+{% for key, value in ssh_sshd_config_options.items() %}
+{{ key }} {{ value }}
+{% endfor %}
+
+#AcceptEnv				{{ security_sshd_accept_env }}
+#AllowGroups				{{ security_sshd_allow_groups }}
+#AllowAgentForwarding 			{{ security_sshd_allow_agent_forwarding }}
+#AllowTcpForwarding 			{{ security_sshd_allow_tcp_forwarding }}
+#Banner 					{{ security_sshd_banner }}
+#ChallengeResponseAuthentication 	{{ security_sshd_challenge_response_authentication }}
+#Ciphers 				{{ security_sshd_ciphers }}
+#ClientAliveCountMax 			{{ security_sshd_client_alive_count_max|int }}
+#ClientAliveInterval 			{{ security_sshd_client_alive_interval|int }}
+#Compression 				{{ security_sshd_compression }}
+#GSSAPIAuthentication 			{{ security_sshd_gssapi_authentication }}
+#HostbasedAuthentication 		{{ security_sshd_hostbased_authentication }}
+#IgnoreUserKnownHosts 			{{ security_sshd_ignore_user_known_hosts }}
+#KerberosAuthentication 			{{ security_sshd_kerberos_authentication }}
+#LogLevel				{{ security_sshd_log_level }}
+#LoginGraceTime				{{ security_sshd_login_grace_time|int }}
+#Macs 					{{ security_sshd_macs }}
+#MaxAuthTries 				{{ security_sshd_max_auth_tries|int }}
+#MaxSessions 				{{ security_sshd_max_sessions|int }}
+#MaxStartups				{{ security_sshd_max_startups }}
+#PasswordAuthentication 			{{ security_sshd_password_authentication }}
+#PermitEmptyPasswords 			{{ security_sshd_permit_empty_passwords }}
+#PermitRootLogin 			{{ security_sshd_permit_root_login }}
+#PermitUserEnvironment 			{{ security_sshd_permit_user_environment }}
+#Port 					{{ security_sshd_port|int }}
+#PrintLastLog 				{{ security_sshd_print_last_log }}
+#PrintMotd 				{{ security_sshd_print_motd }}
+#PubkeyAuthentication 			{{ security_sshd_pubkey_authentication }}
+#StrictModes 				{{ security_sshd_strict_modes }}
+#Subsystem 				{{ security_sshd_subsystem }}
+#TCPKeepAlive 				{{ security_sshd_tcp_keep_alive }}
+#UseDNS 					{{ security_sshd_use_dns }}
+#UsePAM 					{{ security_sshd_use_pam }}
+#X11Forwarding 				{{ security_sshd_x11_forwarding }}

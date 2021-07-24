@@ -1,0 +1,28 @@
+---
+ssh_packages:
+- openssh-server
+- openssh-client
+ssh_service_name: sshd
+ssh_directory_path: /etc/ssh
+ssh_sshd_config_options:
+  ChallengeResponseAuthentication: "no"
+  UsePAM: "yes"
+  X11Forwarding: "yes"
+  PrintMotd: "no"
+  AcceptEnv: LANG LC_*
+  Subsystem: sftp internal-sftp
+  PasswordAuthentication: "yes"
+  Port: 22
+ssh_ssh_config_options:
+- hostnames: ["*"]
+  options:
+    Port: 22
+    ForwardX11: "no"
+    IdentityFile:
+    - ~/.ssh/id_rsa
+    - ~/.ssh/id_dsa
+    - ~/.ssh/id_ecdsa
+    - ~/.ssh/id_ed25519
+    SendEnv: LANG LC_*
+    HashKnownHosts: "yes"
+    GSSAPIAuthentication: "yes"

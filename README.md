@@ -7,6 +7,7 @@ Most of these roles are not really features heavy, but fit my needs as a regular
 
 Here are the list of currently available roles. Each role has its own README file explaining how to use it:
 - [users](./roles/users/): This role lets you create and remove users and groups
+- [ssh](./roles/ssh/): This role lets you configure ssh
 
 ## Example playbook
 ```
@@ -33,9 +34,25 @@ ssh-rsa
     groups_remove:
     - disk
     - adm
+    ssh_packages:
+    - openssh-server
+    - openssh-client
+    ssh_sshd_config_options:
+      ChallengeResponseAuthentication: "no"
+      Port: 22
+    ssh_ssh_config_options:
+    - hostnames: ["*"]
+      options:
+        Port: 22
+	IdentityFile:
+	- ~/.ssh/id_rsa
+	- ~/.ssh/id_dca
+	- ~/.ssh/id_ecdsa
+	- ~/.ssh/id_ed25519
 
   roles:
   - users
+  - ssh
 ```
 
 ## License

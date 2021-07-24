@@ -1,0 +1,68 @@
+---
+- name: Gather os specific variables
+  include_vars: "{{ lookup('first_found', items) }}"
+  vars:
+    items:
+      files:
+      - "{{ ansible_distribution }}.yml"
+      - "{{ ansible_os_family }}.yml"
+      - default.yml
+      paths:
+      - ./vars
+
+- name: Ensure Openssh is installed
+  package:
+    name: "{{ ssh_packages }}"
+    state: present
+
+- name: Check if sshd_config.d exists
+  ansible.builtin.stat:
+    path: "{{ ssh_directory_path }}/sshd_config.d"
+  register: ssh_sshd_config_d_exists
+
+- name: Configure sshd_config
+  template:
+    src: etc/ssh/sshd_config.j2
+    dest: "{{ ssh_directory_path }}/sshd_config"
+    mode: 0600
+    owner: root
+    group: root
+    validate: sshd -T -f %s
+  notify:
+  - Restart ssh
+
+- name: Register ssh host keys
+  find:
+    paths: "{{ ssh_directory_path }}"
+    file_type: file
+    patterns: 'ssh_host_*'
+    excludes: '*.pub'
+  register: ssh_host_keys
+
+- name: Ensure sshd host keys permissions are correct
+  file:
+    path: "{{ item.path }}"
+    mode: 0600
+    owner: root
+    group: root
+  loop: "{{ ssh_host_keys.files }}"
+  loop_control:
+    label: "{{ item.path }}"
+
+- name: Check if ssh_config.d exists
+  ansible.builtin.stat:
+    path: "{{ ssh_directory_path }}/ssh_config.d"
+  register: ssh_ssh_config_d_exists
+
+- name: Configure ssh_config
+  template:
+    src: etc/ssh/ssh_config.j2
+    dest: "{{ ssh_directory_path }}/ssh_config"
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Ensure ssh service is enabled on boot
+  service:
+    name: "{{ ssh_service_name }}"
+    enabled: yes
