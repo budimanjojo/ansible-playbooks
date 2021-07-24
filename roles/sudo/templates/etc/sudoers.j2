@@ -1,0 +1,15 @@
+{{ ansible_managed | comment }}
+
+{% for item in sudo_defaults %}
+Defaults{{ ":" ~ item.name if item.name is defined else "" }} {{ item.default }}
+{% endfor %}
+
+root ALL=(ALL) ALL
+%{{ sudo_admin_group_name }} {{ sudo_admin_group_hosts|join(',') if sudo_admin_group_hosts is defined | default('ALL') else "ALL" }}=({{ sudo_admin_group_runas_users|join(',') if sudo_admin_group_runas_users is defined else "ALL" }}:{{ sudo_admin_group_runas_groups|join(',') if sudo_admin_group_runas_groups is defined else "ALL" }}) {{ "NOPASSWD:" if sudo_admin_group_nopasswd | default(false) else "" }} {{sudo_admin_group_commands|join(',') if sudo_admin_group_commands is defined else "ALL" }}
+
+{% for item in sudo_users %}
+{% if item.commands is defined or item.hosts is defined or item.runas_users is defined or item.runas_groups is defined or item.nopasswd is defined %}
+{{ item.username }} {{ item.hosts|join(',') if item.hosts is defined else "ALL" }}=({{ item.runas_users|join(',') if item.runas_users is defined else "ALL" }}:{{ item.runas_groups|join(',') if item.runas_groups is defined else "ALL" }}) {{ "NOPASSWD:" if item.nopasswd | default(false) else "" }} {{ item.commands|join(',') if item.commands is defined else "ALL" }}
+{% endif %}
+{% endfor %}
+#includedir {{ sudo_sudoers_d }}

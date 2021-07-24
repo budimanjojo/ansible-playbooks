@@ -1,0 +1,36 @@
+---
+- name: Gather os specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+  - files:
+    - "{{ ansible_distribution }}.yml"
+    skip: true
+
+- name: Ensure sudo is installed
+  package:
+    name: sudo
+    state: present
+
+- name: Ensure admin group exists
+  group:
+    name: "{{ sudo_admin_group_name }}"
+    state: present
+
+- name: Add users to admin group
+  user:
+    name: "{{ item.username }}"
+    append: yes
+    groups: "{{ sudo_admin_group_name }}"
+  loop: "{{ sudo_users }}"
+  loop_control:
+    label: "{{ item.username }}"
+  when: item.is_admin_group is defined and item.is_admin_group
+
+- name: Create sudoers file
+  template:
+    src: "etc/sudoers.j2"
+    dest: "/etc/sudoers"
+    validate: visudo -cf %s
+    owner: root
+    group: root
+    mode: "0440"

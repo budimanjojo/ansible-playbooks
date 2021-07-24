@@ -1,0 +1,14 @@
+---
+sudo_admin_group_name: wheel
+sudo_admin_group_nopasswd: false
+sudo_admin_group_hosts:
+- ALL
+sudo_admin_group_runas_users:
+- ALL
+sudo_admin_group_runas_groups:
+- ALL
+sudo_admin_group_commands:
+- ALL
+sudo_sudoers_d: /etc/sudoers.d
+sudo_users: []
+sudo_defaults: []

@@ -7,6 +7,7 @@ Most of these roles are not really features heavy, but fit my needs as a regular
 
 Here are the list of currently available roles. Each role has its own README file explaining how to use it:
 - [users](./roles/users/): This role lets you create and remove users and groups
+- [sudo](./roles/sudo/): This role lets you configure sudoers file
 - [ssh](./roles/ssh/): This role lets you configure ssh
 
 ## Secret variables management
@@ -16,6 +17,7 @@ I personally use [sops](https://github.com/mozilla/sops) to manage my secrets. T
 ## Example playbook
 ```
 - hosts: all
+  become: true
 
   vars:
     users_add:
@@ -38,6 +40,13 @@ ssh-rsa
     groups_remove:
     - disk
     - adm
+    sudo_admin_group_nopasswd: true
+    sudo_users:
+    - username: somebody
+      commands:
+      - /usr/bin/cp
+      - /usr/bin/mv
+      - /usr/bin/touch
     ssh_packages:
     - openssh-server
     - openssh-client
@@ -56,9 +65,10 @@ ssh-rsa
 
   roles:
   - users
+  - sudoers
   - ssh
 ```
 
 ## License
 
-MIT
+MIT License
