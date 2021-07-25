@@ -26,8 +26,12 @@ gitclone_repo_add:
   repo_local_path: path where the repository will be clone to, default to nothing (string)
   repo_version: branch, tag, version of the repository to be cloned to, default to 'HEAD' (string)
   repo_accept_hostkey: whether to accept the first time prompt to accept repository hostkey, default to yes (bool)
-  recursive: whether to also clone the submodules, default to yes (bool)
+  repo_recursive: whether to also clone the submodules, default to yes (bool)
   track_submodules: whether to track latest commit of submodules, default to no (bool)
+  dir_mode: directory permission, default to OS default (string)
+  dir_owner: owner of the directory, default to OS default (string)
+  dir_group: group of the directory, default to OS default (string)
+  dir_recursive: whether to recursively set the mode, owner, group of directory, default to yes (bool)
 ```
 
 ## Example playbook
@@ -43,7 +47,9 @@ Here is an example playbook:
       local_path: /root/somewhere/repo
     - repo_url: https://gitlab.com/username/repo.git
       local_path: /etc/gitrepo/repo
-      recursive: no
+      repo_recursive: no
+      dir_owner: root
+      dir_group: sudo
 ```
 
 ## Licence

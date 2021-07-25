@@ -10,10 +10,24 @@
     dest: "{{ item.repo_local_path }}"
     version: "{{ item.repo_version | default('HEAD') }}"
     accept_hostkey: "{{ item.accept_hostkey | default ('yes') | bool }}"
-    recursive: "{{ item.recursive | default ('yes') | bool }}"
+    recursive: "{{ item.repo_recursive | default ('yes') | bool }}"
     track_submodules: "{{ item.track_submodules | default ('no') | bool }}"
   loop: "{{ gitclone_repo_add }}"
   loop_control:
     label: "{{ item.repo_url }} => {{ item.repo_local_path }}"
   when: item is defined
-  become: "{{ gitclone_become | bool }}"
+  become: "{{ gitclone_become | default('no') | bool }}"
+
+- name: Ensure directories permissions are correct
+  file:
+    path: "{{ item.repo_local_path }}"
+    state: directory
+    mode: "{{ item.dir_mode | default(omit) }}"
+    owner: "{{ item.dir_owner | default(omit) }}"
+    group: "{{ item.dir_group | default(omit) }}"
+    recurse: "{{ item.dir_recursive | default('yes') | bool }}"
+  loop: "{{ gitclone_repo_add }}"
+  loop_control:
+    label: "{{ item.repo_local_path }}"
+  when: item.dir_mode is defined or item.dir_owner is defined or item.dir_group is defined
+  become: "{{ gitclone_become | default('no') | bool }}"
