@@ -12,6 +12,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [packages](./roles/packages/): This role lets you install and uninstall packages
 - [dotfiles](./roles/dotfiles/): This role lets you clone and link your dotfiles from remote repository
 - [gitclone](./roles/gitclone/): This role lets you clone repositories to your machine
+- [download](./roles/download/): This role lets you download files or archive files to your machine
 
 ## Secret variables management
 
@@ -82,6 +83,20 @@ ssh-rsa
     gitclone_repo_add:
     - repo_url: https://github.com/budimanjojo/ansible-playbooks.git
       repo_local_path: ~/ansible-playbooks
+    download_geturl_options:
+    - url: https://raw.githubusercontent.com/username/repo/master/file.txt
+      dest_file: ~/Downloads/file.txt
+      checksum: sha256:123584564yda2fas5df31fad23afa532
+    - url: https://raw.githubusercontent.com/username/repo/master/file2.txt
+      dest_file: ~/Documents/file2.txt
+      checksum: sha256:http://example.com/path/sha256sum.txt
+      owner: somebody
+      group: somebody
+      backup: yes
+    download_geturl_archive_options:
+    - url: https://raw.githubusercontent.com/username/repo/master/file.zip
+      dest_folder: ~/Downloads
+      checksum: sha256:123584564yda2fas5df31fad23afa532
 
   roles:
   - users
@@ -90,6 +105,7 @@ ssh-rsa
   - packages
   - dotfiles
   - gitclone
+  - download
 ```
 
 ## License

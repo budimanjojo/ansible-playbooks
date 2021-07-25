@@ -1,0 +1,6 @@
+---
+download_archive_packages:
+- gzip
+- unzip
+download_geturl_options: []
+download_geturl_archive_options: []
