@@ -5,6 +5,7 @@ dotfiles_repo_local_path: "~/github/dotfiles"
 dotfiles_repo_version: HEAD
 dotfiles_repo_accept_hostkey: yes
 dotfiles_home: "~"
+dotfiles_become: no
 dotfiles_files:
 - .zshrc
 - .vimrc

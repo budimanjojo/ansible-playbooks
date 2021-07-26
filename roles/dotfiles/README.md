@@ -23,6 +23,7 @@ dotfiles_repo_local_path: path where the repository will be clone to, default to
 dotfiles_repo_version: branch, tag, version of the repository to be cloned to, default to 'HEAD' (string)
 dotfiles_repo_accept_hostkey: whether to accept the first time prompt to accept repository hostkey, default to yes (bool)
 dotfiles_home: home directory path of the machine, default to '~' (string)
+dotfiles_become: whether to become root or not, default to no (bool)
 
 ## List of files in the repository to be linked to home directory
 dotfiles_files: []

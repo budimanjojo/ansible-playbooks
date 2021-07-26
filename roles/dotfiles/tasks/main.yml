@@ -10,13 +10,13 @@
     dest: "{{ dotfiles_repo_local_path }}"
     version: "{{ dotfiles_repo_version }}"
     accept_hostkey: "{{ dotfiles_repo_accept_hostkey | default('yes') | bool }}"
-  become: false
+  become: "{{ dotfiles_become | bool }}"
 
 - name: Ensure the needed directories are present
   file:
     dest: "{{ dotfiles_home }}/{{ item }}"
     state: directory
-  become: false
+  become: "{{ dotfiles_become | bool }}"
   loop: "{{ dotfiles_create_dir }}"
 
 - name: Link dotfiles into home directory
@@ -32,7 +32,7 @@
   stat:
     path: "{{ dotfiles_repo_local_path }}/{{ item }}"
   register: dotfiles_files_info
-  become: false
+  become: "{{ dotfiles_become | bool }}"
   loop: "{{ dotfiles_files }}"
 
 - name: Ensure file permissions are correct
@@ -42,7 +42,7 @@
   loop: "{{ dotfiles_files_info.results }}"
   loop_control:
     label: "{{ dotfiles_home }}/{{ item.item }}"
-  become: false
+  become: "{{ dotfiles_become | bool }}"
   when: item.stat.isreg is defined and item.stat.isreg
 
 - name: Ensure group permissions are correct
@@ -52,5 +52,5 @@
   loop: "{{ dotfiles_files_info.results }}"
   loop_control:
     label: "{{ dotfiles_home }}/{{ item.item }}"
-  become: false
+  become: "{{ dotfiles_become | bool }}"
   when: item.stat.isdir is defined and item.stat.isdir
