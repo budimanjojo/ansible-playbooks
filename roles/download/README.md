@@ -65,6 +65,9 @@ Here is an example playbook:
     - url: https://raw.githubusercontent.com/username/repo/master/file.zip
       dest_folder: ~/Downloads
       checksum: sha256:123584564yda2fas5df31fad23afa532
+
+  roles:
+  - download
 ```
 
 ## Licence

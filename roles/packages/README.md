@@ -68,7 +68,7 @@ Here is an example playbook:
     - python36-neovim
 
   roles:
-  - sudo
+  - packages
 ```
 
 ## License

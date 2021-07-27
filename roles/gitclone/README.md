@@ -50,6 +50,9 @@ Here is an example playbook:
       repo_recursive: no
       dir_owner: root
       dir_group: sudo
+
+  roles:
+  - gitclone
 ```
 
 ## Licence

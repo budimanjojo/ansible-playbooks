@@ -47,6 +47,9 @@ Here is an example playbook:
     - .config/nvim
     dotfiles_create_dir:
     - .config/nvim
+  
+  roles:
+  - dotfiles
 ```
 
 ## Licence
