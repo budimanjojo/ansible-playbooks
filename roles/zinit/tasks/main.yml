@@ -1,0 +1,17 @@
+---
+- name: Ensure required packages are installed
+  package:
+    name: "{{ zinit_packages }}"
+    state: present
+
+- name: Check if zinit is installed
+  stat:
+    path: ~/.zinit/bin/.git
+  register: zinit_installed
+  become: "{{ zinit_become | bool }}"
+
+- name: Installing zinit
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+  when: zinit_installed.stat.isdir is not defined or not zinit_installed.stat.isdir
+  become: "{{ zinit_become | bool }}"
+  notify: Run zsh for the first time
