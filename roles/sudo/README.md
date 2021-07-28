@@ -58,23 +58,23 @@ Here is an example playbook:
 - hosts: all
 
   vars:
-  sudo_admin_group_nopasswd: true
-  sudo_users:
-  - username: somebody
-    nopasswd: true
-    is_admin_group: true
-  - username: somebody2
-    hosts:
-    - localhost
-    - production
-    runas_users:
-    - somebody3
-    - somebody4
-    runas_groups:
-    - production
-    commands:
-    - /usr/bin/passwd
-    - /usr/bin/cp
+    sudo_admin_group_nopasswd: true
+    sudo_users:
+    - username: somebody
+      nopasswd: true
+      is_admin_group: true
+    - username: somebody2
+      hosts:
+      - localhost
+      - production
+      runas_users:
+      - somebody3
+      - somebody4
+      runas_groups:
+      - production
+      commands:
+      - /usr/bin/passwd
+      - /usr/bin/cp
 
   roles:
   - sudo

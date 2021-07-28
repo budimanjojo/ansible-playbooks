@@ -43,29 +43,29 @@ Here is an example playbook:
 - hosts: all
 
   vars:
-  packages_pacman_update_mirrorlist: yes
-  packages_pacman_mirrorlist_url: https://archlinux.org/mirrorlist/?country=UA&country=GB&country=US&protocol=http&protocol=https&ip_version=4
-  packages_update_cache: no
-  packages_install:
-    all:
-    - neovim
-    - zsh
-    debian:
-    - python3-neovim
-    archlinux:
-    - python-pynvim
-    redhat:
-    - python36-neovim
-  packages_uninstall:
-    all:
-    - neovim
-    - zsh
-    debian:
-    - python3-neovim
-    archlinux:
-    - python-pynvim
-    redhat:
-    - python36-neovim
+    packages_pacman_update_mirrorlist: yes
+    packages_pacman_mirrorlist_url: https://archlinux.org/mirrorlist/?country=UA&country=GB&country=US&protocol=http&protocol=https&ip_version=4
+    packages_update_cache: no
+    packages_install:
+      all:
+      - neovim
+      - zsh
+      debian:
+      - python3-neovim
+      archlinux:
+      - python-pynvim
+      redhat:
+      - python36-neovim
+    packages_uninstall:
+      all:
+      - neovim
+      - zsh
+      debian:
+      - python3-neovim
+      archlinux:
+      - python-pynvim
+      redhat:
+      - python36-neovim
 
   roles:
   - packages

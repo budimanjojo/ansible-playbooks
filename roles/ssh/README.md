@@ -40,23 +40,23 @@ Here is an example playbook:
 - hosts: all
 
   vars:
-  ssh_packages:
-  - openssh-server
-  - openssh-client
-  ssh_sshd_config_options:
-    ChallengeResponseAuthentication: "no"
-    UsePAM: "yes"
-    X11Forwarding: "yes"
-    Port: 22
-  ssh_ssh_config_options:
-  - hostnames: ["*"]
-    options:
+    ssh_packages:
+    - openssh-server
+    - openssh-client
+    ssh_sshd_config_options:
+      ChallengeResponseAuthentication: "no"
+      UsePAM: "yes"
+      X11Forwarding: "yes"
       Port: 22
-      ForwardX11: "yes"
-      IdentityFile:
-      - ~/.ssh/id_rsa
-      - ~/.ssh/id_ecdsa
-      - ~/.ssh/id_ed25519
+    ssh_ssh_config_options:
+    - hostnames: ["*"]
+      options:
+        Port: 22
+        ForwardX11: "yes"
+        IdentityFile:
+        - ~/.ssh/id_rsa
+        - ~/.ssh/id_ecdsa
+        - ~/.ssh/id_ed25519
 
   roles:
   - ssh
