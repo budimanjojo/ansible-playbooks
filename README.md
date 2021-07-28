@@ -9,7 +9,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [users](./roles/users/): This role lets you create and remove users and groups
 - [sudo](./roles/sudo/): This role lets you configure sudoers file
 - [ssh](./roles/ssh/): This role lets you configure ssh
-- [packages](./roles/packages/): This role lets you install and uninstall packages
+- [packages](https://github.com/budimanjojo/ansible-role-packages): This role lets you install and uninstall packages
 - [dotfiles](./roles/dotfiles/): This role lets you clone and link your dotfiles from remote repository
 - [gitclone](./roles/gitclone/): This role lets you clone repositories to your machine
 - [download](./roles/download/): This role lets you download files or archive files to your machine
@@ -104,7 +104,7 @@ ssh-rsa
   - users
   - sudoers
   - ssh
-  - packages
+  - budimanjojo/packages
   - dotfiles
   - gitclone
   - download

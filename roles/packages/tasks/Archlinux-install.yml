@@ -1,5 +1,0 @@
----
-- name: Install Arch Linux specific packages
-  community.general.pacman:
-    name: "{{ packages_install.archlinux }}"
-    state: present
