@@ -1,4 +1,0 @@
----
-- name: Running PlugInstall
-  command:
-    cmd: "{{ vimplug_vim_cmd }} +PlugInstall +qall"

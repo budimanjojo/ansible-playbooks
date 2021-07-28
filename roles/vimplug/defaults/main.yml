@@ -1,9 +1,0 @@
----
-vimplug_become: no
-vimplug_vim_cmd: vim
-vimplug_vim_datadir: ~/.vim
-vimplug_vimrc_path: ~/.vimrc
-vimplug_packages:
-- vim
-- git
-vimplug_plugins: []

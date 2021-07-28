@@ -14,7 +14,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [gitclone](./roles/gitclone/): This role lets you clone repositories to your machine
 - [download](./roles/download/): This role lets you download files or archive files to your machine
 - [zinit](./roles/zinit/): This role lets you install [zinit](https://github.com/zdharma/zinit)
-- [vimplug](./roles/vimplug): This role lets you install [vim-plug](https://github.com/junegunn/vim-plug) and configure vim plugins
+- [vimplug](https://galaxy.ansible.com/budimanjojo/vimplug): This role lets you install [vim-plug](https://github.com/junegunn/vim-plug) and configure vim plugins
 
 ## Secret variables management
 
@@ -109,7 +109,7 @@ ssh-rsa
   - gitclone
   - download
   - zinit
-  - vimplug
+  - budimanjojo.vimplug
 ```
 
 ## License
