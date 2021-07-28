@@ -1,3 +1,0 @@
----
-- name: Run zsh for the first time
-  command: zsh

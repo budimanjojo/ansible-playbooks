@@ -1,6 +1,0 @@
----
-zinit_packages:
-- zsh
-- curl
-- git
-zinit_become: no
