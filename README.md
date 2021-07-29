@@ -8,7 +8,7 @@ Most of these roles are not really features heavy, but fit my needs as a regular
 Here are the list of currently available roles. Each role has its own README file explaining how to use it:
 - [users](./roles/users/): This role lets you create and remove users and groups
 - [sudo](https://galaxy.ansible.com/budimanjojo/sudo): This role lets you configure sudoers file
-- [ssh](./roles/ssh/): This role lets you configure ssh
+- [ssh](https://galaxy.ansible.com/budimanjojo/sudo): This role lets you configure ssh
 - [packages](https://galaxy.ansible.com/budimanjojo/packages): This role lets you install and uninstall packages
 - [dotfiles](https://galaxy.ansible.com/budimanjojo/packages): This role lets you clone and link your dotfiles from remote repository
 - [gitclone](./roles/gitclone/): This role lets you clone repositories to your machine
@@ -103,7 +103,7 @@ ssh-rsa
   roles:
   - users
   - budimanjojo.sudo
-  - ssh
+  - budimanjojo.ssh
   - budimanjojo.packages
   - budimanjojo.dotfiles
   - gitclone
