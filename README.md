@@ -6,7 +6,7 @@ Most of these roles are not really features heavy, but fit my needs as a regular
 ## Available roles
 
 Here are the list of currently available roles. Each role has its own README file explaining how to use it:
-- [users](./roles/users/): This role lets you create and remove users and groups
+- [users](https://galaxy.ansible.com/budimanjojo/users): This role lets you create and remove users and groups
 - [sudo](https://galaxy.ansible.com/budimanjojo/sudo): This role lets you configure sudoers file
 - [ssh](https://galaxy.ansible.com/budimanjojo/sudo): This role lets you configure ssh
 - [packages](https://galaxy.ansible.com/budimanjojo/packages): This role lets you install and uninstall packages
@@ -101,7 +101,7 @@ ssh-rsa
       checksum: sha256:123584564yda2fas5df31fad23afa532
 
   roles:
-  - users
+  - budimanjojo.users
   - budimanjojo.sudo
   - budimanjojo.ssh
   - budimanjojo.packages
