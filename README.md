@@ -8,10 +8,10 @@ Most of these roles are not really features heavy, but fit my needs as a regular
 Here are the list of currently available roles. Each role has its own README file explaining how to use it:
 - [users](https://galaxy.ansible.com/budimanjojo/users): This role lets you create and remove users and groups
 - [sudo](https://galaxy.ansible.com/budimanjojo/sudo): This role lets you configure sudoers file
-- [ssh](https://galaxy.ansible.com/budimanjojo/sudo): This role lets you configure ssh
+- [ssh](https://galaxy.ansible.com/budimanjojo/ssh): This role lets you configure ssh
 - [packages](https://galaxy.ansible.com/budimanjojo/packages): This role lets you install and uninstall packages
-- [dotfiles](https://galaxy.ansible.com/budimanjojo/packages): This role lets you clone and link your dotfiles from remote repository
-- [gitclone](./roles/gitclone/): This role lets you clone repositories to your machine
+- [dotfiles](https://galaxy.ansible.com/budimanjojo/dotfiles): This role lets you clone and link your dotfiles from remote repository
+- [gitclone](https://galaxy.ansible.com/budimanjojo/gitclone): This role lets you clone repositories to your machine
 - [download](https://galaxy.ansible.com/budimanjojo/download): This role lets you download files or archive files to your machine
 - [zinit](https://galaxy.ansible.com/budimanjojo/zinit): This role lets you install [zinit](https://github.com/zdharma/zinit)
 - [vimplug](https://galaxy.ansible.com/budimanjojo/vimplug): This role lets you install [vim-plug](https://github.com/junegunn/vim-plug) and configure vim plugins
@@ -106,7 +106,7 @@ ssh-rsa
   - budimanjojo.ssh
   - budimanjojo.packages
   - budimanjojo.dotfiles
-  - gitclone
+  - budimanjojo.gitclone
   - budimanjojo.download
   - budimanjojo.zinit
   - budimanjojo.vimplug
