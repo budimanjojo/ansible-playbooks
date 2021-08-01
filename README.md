@@ -15,6 +15,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [download](https://galaxy.ansible.com/budimanjojo/download): This role lets you download files or archive files to your machine
 - [zinit](https://galaxy.ansible.com/budimanjojo/zinit): This role lets you install [zinit](https://github.com/zdharma/zinit)
 - [vimplug](https://galaxy.ansible.com/budimanjojo/vimplug): This role lets you install [vim-plug](https://github.com/junegunn/vim-plug) and configure vim plugins
+- [nodejs](https://galaxy.ansible.com/budimanjojo/nodejs): This role lets you install nodejs and npm from NodeSource
 
 ## Secret variables management
 
@@ -110,6 +111,7 @@ ssh-rsa
   - budimanjojo.download
   - budimanjojo.zinit
   - budimanjojo.vimplug
+  - budimanjojo.nodejs
 ```
 
 ## License
