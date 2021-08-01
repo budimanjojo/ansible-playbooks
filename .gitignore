@@ -1,3 +1,4 @@
-test.yml
+playbooks/test.yml
 inventory/testing/*
-roles
+playbooks/roles/
+*.yml
