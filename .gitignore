@@ -1,4 +1,3 @@
 playbooks/test.yml
 inventory/testing/*
 playbooks/roles/
-*.yml
