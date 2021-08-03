@@ -16,6 +16,7 @@ Here are the list of currently available roles. Each role has its own README fil
 - [zinit](https://galaxy.ansible.com/budimanjojo/zinit): This role lets you install [zinit](https://github.com/zdharma/zinit)
 - [vimplug](https://galaxy.ansible.com/budimanjojo/vimplug): This role lets you install [vim-plug](https://github.com/junegunn/vim-plug) and configure vim plugins
 - [nodejs](https://galaxy.ansible.com/budimanjojo/nodejs): This role lets you install nodejs and npm from NodeSource
+- [haproxy](https://galaxy.ansible.com/budimanjojo/haprxy): This role lets you install and configure HAProxy
 
 ## Secret variables management
 
@@ -100,6 +101,22 @@ ssh-rsa
     - url: https://raw.githubusercontent.com/username/repo/master/file.zip
       dest_folder: ~/Downloads
       checksum: sha256:123584564yda2fas5df31fad23afa532
+    haproxy_frontend_options:
+    - name: apiserver
+      options:
+        bind: "*:6443
+	mode: tcp
+	default_backend: apiserver
+    haproxy_backend_options:
+    - name: apiserver
+      options:
+        mode: tcp
+	option httpchk: GET /healthz
+	option ssl-hello-chk: true
+	server:
+	- node1 10.10.10.10:8443 check
+	- node2 10.10.10.20:8443 check
+	- node3 10.10.10.30:8443 check
 
   roles:
   - budimanjojo.users
@@ -112,6 +129,7 @@ ssh-rsa
   - budimanjojo.zinit
   - budimanjojo.vimplug
   - budimanjojo.nodejs
+  - budimanjojo.haproxy
 ```
 
 ## License
