@@ -21,9 +21,11 @@
     - .vimrc
     - .config/nvim
     - .vim/templates
+    - .config/yamllint
     dotfiles_create_dir:
     - .config/nvim
     - .vim/templates
+    - .config/yamllint
     vimplug_vim_cmd: nvim
     vimplug_plugins:
     - name: junegunn/vim-easy-align
