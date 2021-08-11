@@ -23,7 +23,7 @@
       redhat:
       - the_silver_searcher
       - python3-neovim
-    dotfiles_repo_url: https://github.com/budimanjojo/dotfiles.git
+    dotfiles_repo_url: git@github.com:budimanjojo/dotfiles.git
     dotfiles_repo_local_path: ~/Github/dotfiles
     dotfiles_become: no
     dotfiles_files:
