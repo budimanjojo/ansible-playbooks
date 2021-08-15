@@ -1,0 +1,28 @@
+---
+- hosts: servers
+  become: yes
+
+  vars:
+    ssh_sshd_config_options:
+      PasswordAuthentication: "no"
+      PermitEmptyPasswords: "no"
+      UsePAM: "yes"
+      Subsystem: sftp internal-sftp
+      X11Forwarding: "yes"
+      AcceptEnv: LANG LC_*
+      PrintMotd: "no"
+    ssh_ssh_config_options:
+    - hostnames: ["*"]
+      options:
+        ForwardX11: "yes"
+        IdentityFile:
+        - ~/.ssh/id_rsa
+        - ~/.ssh/id_dsa
+        - ~/.ssh/id_ecdsa
+        - ~/.ssh/id_ed25519
+        SendEnv: LANG LC_*
+        HashKnownHosts: "yes"
+        GSSAPIAuthentication: "yes"
+
+  roles:
+  - budimanjojo.ssh
