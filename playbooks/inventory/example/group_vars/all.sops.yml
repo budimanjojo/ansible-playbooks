@@ -22,6 +22,9 @@ sudo_defaults:
     - default: ENC[AES256_GCM,data:nFT/PYMcMwcukkDJJxrhLennDZ5RTC14FHh28InLpfGJ5DZz/p9/7snMvI8mGAn6AYWYrBG0v+gMKHbJYjsGc+hwmxFldJ97FpQ=,iv:Vyf0ANLJtdfw8dSV7qSLvg7di6osdpleyQTFCV1l10w=,tag:VVTit2i3JhAjA9TXMIACSQ==,type:str]
     - default: ENC[AES256_GCM,data:EJ09hVifB4fj,iv:CeoXO2jVX86aAeGZP04vlSUZd7IHXgiqqs2nqkKAEus=,tag:+VvzKPJIUhDBkXsT+4wjlw==,type:str]
 sudo_admin_group_nopasswd: ENC[AES256_GCM,data:93M1nQ==,iv:exEKjauSJXHKZAXsmBp34RmlLVxHXsvoiHMGZWfxlFs=,tag:ImYOc646rEST6fnnDMnmEA==,type:bool]
+duossh_duo_ikey: ENC[AES256_GCM,data:LOUMKcOoKWhAGYsgqMH/GszePu4=,iv:kERY7El9+pHE7HF4nd4PXFvx8D8fTZ+aT6ZUxjGmiBs=,tag://2oxQPKQkJq5GyZH81+qw==,type:str]
+duossh_duo_skey: ENC[AES256_GCM,data:HhgFfHjVol6uCkaO0gJ4ZyRcWUiuqjOk0N25ZRlddgAdDN9LD1Nb2A==,iv:JG7LYxWKnZlkk6xa+71KpD9Wou61//qgCS6OAIUE18g=,tag:8ydkGNcy6lfYEmJSzokj6A==,type:str]
+duossh_duo_host: ENC[AES256_GCM,data:BIrqhfcvVVg9zCCwc9lGfvrtqKf5jx/vAj2Vow==,iv:1WX74YmLuz1uIWU18eH+LgLCRr9tlQ+oT0PIm1dwKkE=,tag:YcAcJZguKt8g0MIVmSJ9jg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -37,8 +40,8 @@ sops:
             UXp4dzBmeFIwTmd5VmJyVTgvL1piQjAKb0UXgyJzkz9OjVRnyAgXc7mWzZPVooET
             ws3mViEu0wZ5RiwA51jK5jfykdrI5QDdP9wYY1hpar9xCThvzc3Ejw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-07-24T09:10:14Z"
-    mac: ENC[AES256_GCM,data:VaH0PlcB7U/1D46yFh26SRL8K6UUX0d6cYUL42pHquNHZ6/8hbtBK7SziYfmXEckqc2Oe/cEQhQrP2PQXzwFmoqC2mwh3ewpI+rnitKpQBx1SEWt+g6/fVjFpRMUIo86f2N6d2ZZAIrIorBgtfZqpt9mwfp5DIhv2jIIG94SIuU=,iv:ABLaeTNkc3Y+eIvXb3VjUAFtLzVAQLiAIdcHYSzZhd0=,tag:oqMnb90BseDhqebEo1c2Lg==,type:str]
+    lastmodified: "2021-08-17T08:05:10Z"
+    mac: ENC[AES256_GCM,data:47mJ4pCD13KMed6jzpWDosu7l4p91YDFDQbS7mx4KO6C00X8a2SsUIvnN0Y3DmEbOGzMm5fYiQSXZvOrRuIRzxt7P1unvcEaILosS52nQFRTpPNywN79smf0Pso3UwUhYJzka0p7lkupuCi3inC5zHle2xK0+ABK2trs3AfLJGs=,iv:lEp9DN36AN9/r81IBON6hF2I3eBr+RrHsDi6F6aGcuI=,tag:q2vlD6t3HLvFpQuGoriQ1Q==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.7.1
