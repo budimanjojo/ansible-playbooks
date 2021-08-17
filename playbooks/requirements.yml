@@ -7,3 +7,4 @@ roles:
 - name: budimanjojo.zinit
 - name: budimanjojo.users
 - name: budimanjojo.ssh
+- name: budimanjojo.duo_ssh
