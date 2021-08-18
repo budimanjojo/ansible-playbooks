@@ -1,0 +1,12 @@
+---
+- hosts: servers
+  become: yes
+
+  vars:
+    sudo_admin_group_nopasswd: true
+    sudo_users:
+    - username: budiman
+      is_admin_group: true
+
+  roles:
+  - budimanjojo.sudo

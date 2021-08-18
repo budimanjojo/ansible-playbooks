@@ -8,3 +8,4 @@ roles:
 - name: budimanjojo.users
 - name: budimanjojo.ssh
 - name: budimanjojo.duo_ssh
+- name: budimanjojo.sudo
