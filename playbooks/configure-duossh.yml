@@ -3,4 +3,4 @@
   become: yes
 
   roles:
-  - budimanjojo.duossh
+  - budimanjojo.duo_ssh
