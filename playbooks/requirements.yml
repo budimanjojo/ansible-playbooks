@@ -9,3 +9,4 @@ roles:
 - name: budimanjojo.ssh
 - name: budimanjojo.duo_ssh
 - name: budimanjojo.sudo
+- name: budimanjojo.neovim
