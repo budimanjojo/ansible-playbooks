@@ -1,3 +1,4 @@
 playbooks/test.yml
-playbooks/inventory/testing/*
+playbooks/inventory/example/credentials/
 playbooks/roles/
+playbooks/venv

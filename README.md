@@ -1,11 +1,13 @@
 # ansible-playbooks
 
-This repository contains my ansible roles. The goal of me making these roles instead of using the available roles in the Galaxy is to simplify everything and use the best practices of current Ansible version.
+This repository contains my ansible playbooks. Most of the roles used in my playbooks are my own roles. The goal of me making these roles instead of using the available ones in the Galaxy is to simplify everything and use the best practices of current Ansible version.
 Most of these roles are not really features heavy, but fit my needs as a regular user perfectly.
+
+I also provision my [kubernetes cluster](https://github.com/budimanjojo/home-cluster) using [Kubespray](https://github.com/kubernetes-sigs/kubespray). You can find my kubespray group_vars [here](./playbooks/inventory/example/group_vars/kubespray.yml) and [here](./playbooks/inventory/example/group_vars/k8s_cluster/). The `*.yml` files starting with `kubespray` are kubespray related playbooks.
 
 ## Available roles
 
-Here are the list of currently available roles. Each role has its own README file explaining how to use it:
+Here are the list of roles from me used in this repository. Each role has its own README file explaining how to use it:
 - [users](https://galaxy.ansible.com/budimanjojo/users): This role lets you create and remove users and groups
 - [sudo](https://galaxy.ansible.com/budimanjojo/sudo): This role lets you configure sudoers file
 - [ssh](https://galaxy.ansible.com/budimanjojo/ssh): This role lets you configure ssh
