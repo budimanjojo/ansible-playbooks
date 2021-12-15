@@ -7,7 +7,7 @@ Most of these roles are not features heavy, but fit my needs as a regular user.
 
 You can find all the playbooks in the [playbooks directory](./playbooks/). The `*.yml` files starting with `k3s-` are k3s related playbooks.
 Example inventory file and all the variables are inside [playbooks/inventory](./playbooks/inventory/example/).
-I'm using [ansible-role-kk3s](https://github.com/PyratLabs/ansible-role-k3s) to deploy my k3s cluster.
+I'm using [ansible-role-k3s](https://github.com/PyratLabs/ansible-role-k3s) to deploy my k3s cluster.
 
 I provision my [kubernetes cluster](https://github.com/budimanjojo/home-cluster) using [ansible-role-k3s](https://github.com/PyratLabs/ansible-role-k3s).
 
