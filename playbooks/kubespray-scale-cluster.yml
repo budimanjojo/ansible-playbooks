@@ -1,2 +1,0 @@
-- name: Include Kubespray playbook
-  import_playbook: ../kubespray/scale.yml

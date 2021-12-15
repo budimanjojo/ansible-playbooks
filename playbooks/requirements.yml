@@ -11,3 +11,4 @@ roles:
 - name: budimanjojo.sudo
 - name: budimanjojo.neovim
 - name: budimanjojo.update
+- src: xanmanning.k3s

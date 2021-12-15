@@ -1,0 +1,26 @@
+---
+k3s_control_node: true
+k3s_server:
+  node-ip: "{{ ansible_host }}"
+  etcd-expose-metrics: true
+  cluster-cidr: "10.244.0.0/16"
+  service-cidr: "10.96.0.0/12"
+  flannel-backend: "none"
+  write-kubeconfig-mode: "644"
+  tls-san:
+    - 192.168.200.10
+  disable:
+    - servicelb
+    - traefik
+    - local-storage
+    - metrics-server
+  disable-cloud-controller: true
+  disable-network-policy: true
+  kube-controller-manager-arg:
+    - "bind-address=0.0.0.0"
+  kube-proxy-arg:
+    - "metrics-bind-address=0.0.0.0"
+  kube-scheduler-arg:
+    - "bind-address=0.0.0.0"
+  kube-apiserver-arg:
+    - "anonymous-auth=true"

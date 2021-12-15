@@ -1,11 +1,15 @@
 # ansible-playbooks
 
-This repository contains my Ansible playbooks. Most of the roles used in the playbooks are my own roles. The goal of me making these roles instead of using the available ones in the Galaxy is to simplify everything and use the best practices of current Ansible version.
-Most of these roles are not really features heavy, but fit my needs as a regular user perfectly.
+This repository contains my Ansible playbooks.
+Most of the roles used in the playbooks are my own roles.
+The goal of me making these roles instead of using the available ones in the Galaxy is to simplify everything and use the best practices of current Ansible version.
+Most of these roles are not features heavy, but fit my needs as a regular user.
 
-You can find all the playbooks in the [playbooks directory](./playbooks/). The `*.yml` files starting with `kubespray-` are kubespray related playbooks. Example inventory file and all the variables are inside [playbooks/inventory](./playbooks/inventory/example/).
+You can find all the playbooks in the [playbooks directory](./playbooks/). The `*.yml` files starting with `k3s-` are k3s related playbooks.
+Example inventory file and all the variables are inside [playbooks/inventory](./playbooks/inventory/example/).
+I'm using [ansible-role-kk3s](https://github.com/PyratLabs/ansible-role-k3s) to deploy my k3s cluster.
 
-I also provision my [kubernetes cluster](https://github.com/budimanjojo/home-cluster) using [Kubespray](https://github.com/kubernetes-sigs/kubespray). You can find my kubespray group_vars [here](./playbooks/inventory/example/group_vars/kubespray.yml) and [here](./playbooks/inventory/example/group_vars/k8s_cluster/).
+I provision my [kubernetes cluster](https://github.com/budimanjojo/home-cluster) using [ansible-role-k3s](https://github.com/PyratLabs/ansible-role-k3s).
 
 ## Available roles
 
