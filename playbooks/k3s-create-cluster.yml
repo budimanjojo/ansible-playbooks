@@ -6,3 +6,18 @@
   any_errors_fatal: true
   roles:
     - xanmanning.k3s
+
+  tasks:
+    - name: Copy containerd-hack service
+      template:
+        src: etc/systemd/system/containerd-hack.service
+        dest: /etc/systemd/system/containerd-hack.service
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Enable containerd-hack service
+      systemd:
+        name: containerd-hack
+        enabled: true
+        daemon-reload: true

@@ -8,3 +8,16 @@
   any_errors_fatal: true
   roles:
     - xanmanning.k3s
+
+  tasks:
+    - name: Remove containerd-hack
+      file:
+        path: /etc/systemd/system/containerd-hack.service
+        state: absent
+      notify:
+        - Reload systemd daemon
+
+  handlers:
+    - name: Reload systemd daemon
+      systemd:
+        daemon-reload: true
