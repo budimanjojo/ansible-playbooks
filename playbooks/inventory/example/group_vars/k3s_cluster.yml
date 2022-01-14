@@ -1,5 +1,5 @@
 ---
-k3s_release_version: v1.22.5+k3s1
+k3s_release_version: v1.23.1+k3s1
 
 # A list of templates used for pre-configuring the cluster.
 k3s_server_manifests_templates:
